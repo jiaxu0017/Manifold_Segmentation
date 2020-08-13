@@ -53,3 +53,9 @@ Results will be saved at ./results.
 ```
 python main.py --model 'model' --enable_vis --vis_port 28333 --gpu_idch 0 --lr 0.01 --crop_size 'size' --batch_size 16  --ckpt 'model path,such as ./checkpoints/***.pth ' --test_only --save_val_results
 ```
+
+## Thanks to the Third Party Libs
+
+[DeepLabV3Plus-Pytorch](https://github.com/VainF/DeepLabV3Plus-Pytorch)
+[Dual Attention Network](https://github.com/junfu1115/DANet)  
+[pytorch-segmentation-toolbox](https://github.com/speedinghzl/pytorch-segmentation-toolbox)
