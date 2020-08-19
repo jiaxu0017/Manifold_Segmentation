@@ -20,7 +20,7 @@ visdom -port 28333
 ```
 run the train code
 ```bash
-python main.py --model 'model' --dataset 'dataset_name' --data_root 'path' --enable_vis --vis_port 28333 --gpu_id 0 --lr 0.01 --crop_size 'size' --batch_size 16 --download
+python main.py --model 'model' --dataset 'dataset_name' --data_root 'path' --enable_vis --vis_port 28333 --gpu_id 0 --lr 0.01 --mr 0.001 --crop_size 'size' --batch_size 16 --download
 ```
 Specify the model architecture with '--model ARCH_NAME'
 
@@ -51,7 +51,7 @@ Run main.py with '--continue_training' to restore the state_dict of optimizer an
 ## Test
 Results will be saved at ./results.
 ```
-python main.py --model 'model' --enable_vis --vis_port 28333 --gpu_idch 0 --lr 0.01 --crop_size 'size' --batch_size 16  --ckpt 'model path,such as ./checkpoints/***.pth ' --test_only --save_val_results
+python main.py --model 'model' --enable_vis --vis_port 28333 --gpu_idch 0 --lr 0.01 --mr 0.001 --crop_size 'size' --batch_size 16  --ckpt 'model path,such as ./checkpoints/***.pth ' --test_only --save_val_results
 ```
 
 ## Thanks to the Third Party Libs
