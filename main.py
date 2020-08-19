@@ -51,6 +51,8 @@ def get_argparser():
                         help="epoch number (default: 30k)")
     parser.add_argument("--lr", type=float, default=0.01,
                         help="learning rate (default: 0.01)")
+    parser.add_argument("--mr", type=float, default=0.001,
+                        help="manifold weight rate (default: 0.01)")
     parser.add_argument("--lr_policy", type=str, default='poly', choices=['poly', 'step'],
                         help="learning rate scheduler policy")
     parser.add_argument("--step_size", type=int, default=10000)
@@ -291,10 +293,10 @@ def main():
     # Set up criterion
     if opts.loss_type == 'focal_loss':
         criterion = utils.FocalLoss(ignore_index=255, size_average=True)
-        coss_patchmanifold = utils.PatchManifoldLoss(alpha=0.001,split=10,filter=3).to(device)
+        coss_patchmanifold = utils.PatchManifoldLoss(alpha=opts.mr,split=10,filter=3).to(device)
     elif opts.loss_type == 'cross_entropy':
         criterion = nn.CrossEntropyLoss(ignore_index=255, reduction='mean')
-        coss_patchmanifold = utils.PatchManifoldLoss(alpha=0.001, split=10, filter=3).to(device)
+        coss_patchmanifold = utils.PatchManifoldLoss(alpha=opts.mr, split=10, filter=3).to(device)
 
     def save_ckpt(path):
         """ save current model
